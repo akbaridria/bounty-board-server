@@ -43,7 +43,6 @@ app.post("/upload", async (c) => {
 app.get("/files/:cid", async (c) => {
   const { cid } = c.req.param();
   const file = await getFile(cid, c.env.PINATA_JWT, c.env.PINATA_GATEWAY);
-  console.log("File data:", file);
   if (file.data) {
     return c.json(file);
   }
